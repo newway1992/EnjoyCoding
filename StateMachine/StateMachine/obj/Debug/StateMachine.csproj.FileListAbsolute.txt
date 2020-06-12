@@ -1,0 +1,1 @@
+E:\mycode\StateMachine\StateMachine\bin\Debug\StateMachine.exe.config
