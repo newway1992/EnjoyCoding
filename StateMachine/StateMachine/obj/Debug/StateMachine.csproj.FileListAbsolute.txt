@@ -1,1 +1,8 @@
 E:\mycode\StateMachine\StateMachine\bin\Debug\StateMachine.exe.config
+F:\EnjoyCoding\StateMachine\StateMachine\obj\Debug\StateMachine.csprojAssemblyReference.cache
+F:\EnjoyCoding\StateMachine\StateMachine\obj\Debug\StateMachine.csproj.CoreCompileInputs.cache
+F:\EnjoyCoding\StateMachine\StateMachine\bin\Debug\StateMachine.exe.config
+F:\EnjoyCoding\StateMachine\StateMachine\bin\Debug\StateMachine.exe
+F:\EnjoyCoding\StateMachine\StateMachine\bin\Debug\StateMachine.pdb
+F:\EnjoyCoding\StateMachine\StateMachine\obj\Debug\StateMachine.exe
+F:\EnjoyCoding\StateMachine\StateMachine\obj\Debug\StateMachine.pdb

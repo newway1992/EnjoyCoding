@@ -9,9 +9,6 @@ namespace StateMachine
     class BaseGameEntity
     {
         private int m_ID;
-        protected State<T> m_pCurrentState;
-        protected State<T> m_pPreState;
-        protected State<T> m_pGlobalState;
 
         void SetID()
         {

@@ -8,6 +8,10 @@ namespace StateMachine
 {
     class Hero : BaseGameEntity
     {
+        protected State<Hero> m_pCurrentState;
+        protected State<Hero> m_pPreState;
+        protected State<Hero> m_pGlobalState;
+
         private string m_szLocation;
         private int m_iHp;
         private int m_iMp;
@@ -19,6 +23,7 @@ namespace StateMachine
             m_iHp = 0;
             m_iMp = 0;
             m_iWeopon = WeaponConst.WEPON_NONE;
+            m_pCurrentState = new PlayerBorn();
         }
 
         public override void Update()
@@ -29,7 +34,7 @@ namespace StateMachine
             }
         }
 
-        public void ChangeState(State newState)
+        public void ChangeState(State<Hero> newState)
         {
             if (m_pCurrentState != null)
             {
