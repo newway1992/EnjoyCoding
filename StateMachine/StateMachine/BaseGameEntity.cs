@@ -24,10 +24,5 @@ namespace StateMachine
         {
             return m_ID;
         }
-
-        public virtual void Update()
-        {
-
-        }
     }
 }

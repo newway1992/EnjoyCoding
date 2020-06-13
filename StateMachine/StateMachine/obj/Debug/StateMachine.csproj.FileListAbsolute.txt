@@ -6,3 +6,9 @@ F:\EnjoyCoding\StateMachine\StateMachine\bin\Debug\StateMachine.exe
 F:\EnjoyCoding\StateMachine\StateMachine\bin\Debug\StateMachine.pdb
 F:\EnjoyCoding\StateMachine\StateMachine\obj\Debug\StateMachine.exe
 F:\EnjoyCoding\StateMachine\StateMachine\obj\Debug\StateMachine.pdb
+E:\mycode\EnjoyCoding\StateMachine\StateMachine\bin\Debug\StateMachine.exe.config
+E:\mycode\EnjoyCoding\StateMachine\StateMachine\obj\Debug\StateMachine.exe
+E:\mycode\EnjoyCoding\StateMachine\StateMachine\obj\Debug\StateMachine.pdb
+E:\mycode\EnjoyCoding\StateMachine\StateMachine\bin\Debug\StateMachine.exe
+E:\mycode\EnjoyCoding\StateMachine\StateMachine\bin\Debug\StateMachine.pdb
+E:\mycode\EnjoyCoding\StateMachine\StateMachine\obj\Debug\StateMachine.csprojResolveAssemblyReference.cache

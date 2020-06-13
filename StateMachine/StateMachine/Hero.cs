@@ -6,43 +6,68 @@ using System.Threading.Tasks;
 
 namespace StateMachine
 {
-    class Hero : BaseGameEntity
+    class Hero : BaseGameEntity, IUpdate
     {
-        protected State<Hero> m_pCurrentState;
-        protected State<Hero> m_pPreState;
-        protected State<Hero> m_pGlobalState;
+        private StateMachine<Hero> fsm;
 
         private string m_szLocation;
-        private int m_iHp;
-        private int m_iMp;
-        private int m_iWeopon;
+        private string m_szName;
+        private int m_iAge;
+        private string m_szRank;
+        private string m_szTitle;
 
-        public Hero() : base()
+        public Hero(string name) : base()
         {
             m_szLocation = LocationConst.LOCATION_HOME;
-            m_iHp = 0;
-            m_iMp = 0;
-            m_iWeopon = WeaponConst.WEPON_NONE;
-            m_pCurrentState = new PlayerBorn();
+            m_szName = name;
+            fsm = new StateMachine<Hero>(this, PlayerNone.Instance(), PlayerNone.Instance(), null);
         }
 
-        public override void Update()
+        public void Update(float delta)
         {
-            if (m_pCurrentState != null)
+            if (fsm != null)
             {
-                m_pCurrentState.Execute(this);
+                fsm.Update(delta);
             }
         }
 
-        public void ChangeState(State<Hero> newState)
+        public string Desc()
         {
-            if (m_pCurrentState != null)
-            {
-                m_pCurrentState.Exit(this);
-                m_pCurrentState = newState;
-                m_pCurrentState.Enter(this);
-            }
+            return string.Format("姓名:{0} 年龄:{1} 职位:{2} 级别:{3}", this.Name, this.Age, this.Title, this.Rank);
         }
 
+        public string Name
+        {
+            set { m_szName = value; }
+            get { return m_szName; }
+        }
+
+        public string Rank
+        {
+            set { m_szRank = value; }
+            get { return m_szRank; }
+        }
+
+        public string Title
+        {
+            set { m_szTitle = value; }
+            get { return m_szTitle; }
+        }
+
+        public int Age
+        {
+            set { m_iAge = value; }
+            get { return m_iAge; }
+        }
+
+        public StateMachine<Hero> GetFSM()
+        {
+            return this.fsm;
+        }
+
+        //public void ChangeState(State<Hero> newState)
+        //{
+        //    fsm.ChangeState(newState);
+        //}
     }
 }

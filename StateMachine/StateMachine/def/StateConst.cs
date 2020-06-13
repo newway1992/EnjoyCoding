@@ -1,5 +1,6 @@
 ﻿public class StateConst
 {
+    public const string STATE_PLAYER_NONE = "STATE_PLAYER_NONE";
     public const string STATE_PLAYER_BORN = "STATE_PLAYER_BORN";
     public const string STATE_PLAYER_MOVE = "STATE_PLAYER_MOVE";
     public const string STATE_PLAYER_ATTACK = "STATE_PLAYER_ATTACK";
