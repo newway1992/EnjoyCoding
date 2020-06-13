@@ -10,6 +10,7 @@ namespace StateMachine
     {
         static void Main(string[] args)
         {
+            Hero hero = new Hero();
         }
     }
 }

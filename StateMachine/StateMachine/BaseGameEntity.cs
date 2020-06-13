@@ -9,15 +9,13 @@ namespace StateMachine
     class BaseGameEntity
     {
         private int m_ID;
-        private static int m_iNextValidID;
-        protected State m_pCurrentState;
-        protected State m_pPreState;
-        protected State m_pGlobalState;
+        protected State<T> m_pCurrentState;
+        protected State<T> m_pPreState;
+        protected State<T> m_pGlobalState;
 
         void SetID()
         {
-            m_ID = m_iNextValidID;
-            m_iNextValidID++;
+            m_ID = IDGenerator.GetInstance().GetValidID();
         }
 
         public BaseGameEntity()

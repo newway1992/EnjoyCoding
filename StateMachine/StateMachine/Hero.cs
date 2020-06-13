@@ -13,7 +13,7 @@ namespace StateMachine
         private int m_iMp;
         private int m_iWeopon;
 
-        public Hero():base()
+        public Hero() : base()
         {
             m_szLocation = LocationConst.LOCATION_HOME;
             m_iHp = 0;
@@ -40,5 +40,4 @@ namespace StateMachine
         }
 
     }
-}
 }

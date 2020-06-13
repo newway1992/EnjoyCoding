@@ -6,12 +6,24 @@ using System.Threading.Tasks;
 
 namespace StateMachine
 {
-    abstract class State
+    abstract class State<T> where T:BaseGameEntity
     {
-        public abstract void Execute(BaseGameEntity entity);
+        private string m_szName = "";
 
-        public abstract void Enter(BaseGameEntity entity);
+        public State(string name)
+        {
+            m_szName = name;
+        }
 
-        public abstract void Exit(BaseGameEntity entity);
+        public string GetName()
+        {
+            return m_szName;
+        }
+
+        public abstract void Execute(T entity);
+
+        public abstract void Enter(T entity);
+
+        public abstract void Exit(T entity);
     }
 }

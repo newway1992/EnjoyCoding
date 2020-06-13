@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace StateMachine
 {
-    class WeaponConst
+    public class WeaponConst
     {
         public const int WEPON_NONE = 0;//空手
         public const int WEPON_SWORD = 1;//剑
