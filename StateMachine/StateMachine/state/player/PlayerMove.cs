@@ -13,13 +13,13 @@
 
         public override void Enter(Hero entity)
         {
-           //throw new System.NotImplementedException();       
+            //throw new System.NotImplementedException();
+            Log.Print("{0} 成为一名 {1}", entity.Name, RankDef.RANK_KEYUAN);
         }
 
         public override void Execute(Hero entity)
         {
-            throw new System.NotImplementedException();
-            Log.Print("{0} 移动到 {1}", entity.GetID(), LocationConst.LOCATION_WUDANGSHAN);
+          
         }
 
         public override void Exit(Hero entity)

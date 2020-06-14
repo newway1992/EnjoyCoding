@@ -12,6 +12,7 @@ namespace StateMachine
 
         private string m_szLocation;
         private string m_szName;
+        private string m_szSex;
         private int m_iAge;
         private string m_szRank;
         private string m_szTitle;
@@ -20,6 +21,10 @@ namespace StateMachine
         {
             m_szLocation = LocationConst.LOCATION_HOME;
             m_szName = name;
+            m_szSex = "男";
+            m_iAge = 22;
+            m_szTitle = TitleDef.Title_NONE;
+            m_szRank = RankDef.RANK_DAXUESHENG;
             fsm = new StateMachine<Hero>(this, PlayerNone.Instance(), PlayerNone.Instance(), null);
         }
 
@@ -33,13 +38,19 @@ namespace StateMachine
 
         public string Desc()
         {
-            return string.Format("姓名:{0} 年龄:{1} 职位:{2} 级别:{3}", this.Name, this.Age, this.Title, this.Rank);
+            return string.Format("ID:{0} 姓名:{1} 性别:{2} 年龄:{3} 职位:{4} 级别:{5}", this.GetID(), this.Name, this.m_szSex, this.Age, this.Title, this.Rank);
         }
 
         public string Name
         {
             set { m_szName = value; }
             get { return m_szName; }
+        }
+
+        public string Sex
+        {
+            set { m_szSex = value; }
+            get { return m_szSex; }
         }
 
         public string Rank

@@ -57,6 +57,7 @@
     <Compile Include="state\player\PlayerBorn.cs" />
     <Compile Include="state\player\PlayerMove.cs" />
     <Compile Include="state\player\PlayerNone.cs" />
+    <Compile Include="TitleDef.cs" />
     <Compile Include="util\IDGenerator.cs" />
     <Compile Include="util\Log.cs" />
     <Compile Include="def\WeaponConst.cs" />

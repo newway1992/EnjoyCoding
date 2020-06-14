@@ -38,7 +38,7 @@ namespace StateMachine
         {
             if (m_pCurrentState != null)
             {
-                Log.Print("entity:{0} [{1}]->[{2}]", m_entity.GetID(),m_pPreState?.GetName(), m_pCurrentState.GetName());
+                Log.Print("entity:{0} [{1}]->[{2}]", m_entity.GetID(), m_pCurrentState?.GetName(), newState.GetName());
                 m_pPreState = m_pCurrentState;
                 m_pCurrentState.Exit(m_entity);
                 m_pCurrentState = newState;

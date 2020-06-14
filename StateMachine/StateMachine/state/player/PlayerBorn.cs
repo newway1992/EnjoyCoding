@@ -3,6 +3,14 @@
     class PlayerBorn : State<Hero>
     {
         private static PlayerBorn instance = new PlayerBorn();
+        private int index = 0;
+        private string[] contents =
+        {
+            "四年寒窗苦读，终于大学毕业了！为了用所学知识报效祖国，我参加了公务员考试...",
+            "考试结果:",
+            "《行政职业能力测验》（A） 80",
+            "《申论》 83",
+        };
         public static PlayerBorn Instance()
         {
             return instance;
@@ -22,6 +30,15 @@
         {
             //throw new System.NotImplementedException();
             //Log.Print(entity.Desc());
+            if(index < contents.Length)
+            {
+                Log.Print(contents[index]);
+                index++;
+            }
+            else
+            {
+                entity.GetFSM().ChangeState(PlayerMove.Instance());
+            }
         }
 
         public override void Exit(Hero entity)
