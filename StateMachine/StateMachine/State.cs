@@ -25,5 +25,10 @@ namespace StateMachine
         public abstract void Enter(T entity);
 
         public abstract void Exit(T entity);
+
+        public virtual bool OnMessage(T entity, Msg msg)
+        {
+            return true;
+        }
     }
 }

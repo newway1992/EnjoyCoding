@@ -8,21 +8,21 @@ namespace StateMachine
 {
     class Game
     {
-        public Dictionary<int, BaseGameEntity> entityMap;
 
         private const int FRAMES_PER_SECOND = 25;
         private bool isRunning;
-        private float curTick;
         public Game()
         {
             isRunning = true;
-            entityMap = new Dictionary<int, BaseGameEntity>();
         }
 
         public void GameStart()
         {
-            Hero hero = new Hero("刘伟");
-            entityMap.Add(hero.GetID(), hero);
+            GlobalEntity global = new GlobalEntity(EntityDef.GLOBAL,"世界");
+            EntityManager.GetInstance().AddEntity(global.GetID(), global);
+
+            Hero hero = new Hero(EntityDef.MAIN_HERO,"刘伟");
+            EntityManager.GetInstance().AddEntity(hero.GetID(), hero);
             GameLoop();
         }
 
@@ -31,13 +31,14 @@ namespace StateMachine
             while (isRunning)
             {
                 Thread.Sleep(1000);
-                Update(1);
+                GameUpdate(1);
+                //MsgDispatcher.GetInstance().DispatchDelayMessage();
             }
         }
 
-        public void Update(float delta)
+        public void GameUpdate(float delta)
         {
-            foreach(IUpdate entity in entityMap.Values)
+            foreach(IUpdate entity in EntityManager.GetInstance().GetEntityMap().Values)
             {
                 entity.Update(delta);
             }

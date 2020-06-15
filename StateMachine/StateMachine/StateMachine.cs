@@ -11,9 +11,9 @@ namespace StateMachine
         private T m_entity;
         protected State<T> m_pCurrentState;
         protected State<T> m_pPreState;
-        protected State<T> m_pGlobalState;
+        protected State<BaseGameEntity> m_pGlobalState;
 
-        public StateMachine(T entity, State<T> currentState, State<T> preState, State<T> globalState)
+        public StateMachine(T entity, State<T> currentState, State<T> preState, State<BaseGameEntity> globalState)
         {
             m_entity = entity;
             m_pCurrentState = currentState;
@@ -50,6 +50,20 @@ namespace StateMachine
         {
             ChangeState(m_pPreState);
         }
+
+        public bool HandleMessage(Msg msg)
+        {
+            if(m_pCurrentState != null && m_pCurrentState.OnMessage(m_entity, msg))
+            {
+                return true;
+            }
+            if (m_pGlobalState != null && m_pGlobalState.OnMessage(m_entity, msg))
+            {
+                return true;
+            }
+            return false;
+        }
+
 
     }
 }

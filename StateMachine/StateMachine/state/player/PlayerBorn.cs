@@ -37,7 +37,8 @@
             }
             else
             {
-                entity.GetFSM().ChangeState(PlayerMove.Instance());
+                MsgDispatcher.GetInstance().DispatchMessage(0, EntityDef.MAIN_HERO, EntityDef.GLOBAL, MsgDef.MSG_CANJIAKAOSHI);
+                //entity.GetFSM().ChangeState(PlayerMove.Instance());
             }
         }
 
