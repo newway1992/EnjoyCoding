@@ -10,13 +10,22 @@ namespace StateMachine
     {
         public int Compare(Msg x, Msg y)
         {
-            return x.dispatchTime < y.dispatchTime ? 0 : 1;
+            if(x.dispatchTime < y.dispatchTime)
+            {
+                return -1;
+            }else if(x.dispatchTime > y.dispatchTime)
+            {
+                return 1;
+            }else
+            {
+                return 0;
+            }
         }
 
     }
     class MsgDispatcher
     {
-        private SortedSet<Msg> priorityQ = new SortedSet<Msg>();
+        private SortedSet<Msg> priorityQ = new SortedSet<Msg>(new MsgComparer());
 
         private static MsgDispatcher instance = new MsgDispatcher();
 
@@ -33,10 +42,11 @@ namespace StateMachine
             }
         }
 
-        public void DispatchMessage(float delay, int sender, int reciever, int msg)
+        public void DispatchMessage(float delay, int sender, int reciever, int msg,params object[] extraInfo)
         {
             var receiverEntity = EntityManager.GetInstance().GetEntity(reciever);
             Msg message = new Msg(sender, reciever, msg, delay, DateTime.Now);
+            message.extraInfo = extraInfo;
             if (Math.Abs(delay - 0) < 0.01)
             {
                 Discharge(receiverEntity, message);
@@ -52,12 +62,12 @@ namespace StateMachine
         public void DispatchDelayMessage()
         {
             DateTime now = DateTime.Now;
-            while (priorityQ.First() != null && priorityQ.First().dispatchTime < now)
+            while (priorityQ.Count > 0 && priorityQ.First() != null && priorityQ.First().dispatchTime < now)
             {
                 Msg message = priorityQ.First();
                 var receiverEntity = EntityManager.GetInstance().GetEntity(message.reciever);
                 Discharge(receiverEntity, message);
-                priorityQ.Remove(message);
+                var result = priorityQ.Remove(message);
             }
         }
     }

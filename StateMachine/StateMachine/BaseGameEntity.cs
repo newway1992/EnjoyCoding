@@ -44,7 +44,7 @@ namespace StateMachine
 
         public virtual bool HandleMessage(Msg msg)
         {
-            return true;
+            return false;
         }
     }
 }

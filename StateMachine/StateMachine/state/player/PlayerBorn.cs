@@ -30,15 +30,18 @@
         {
             //throw new System.NotImplementedException();
             //Log.Print(entity.Desc());
+            if(index >= contents.Length)
+            {
+                return;
+            }
             if(index < contents.Length)
             {
                 Log.Print(contents[index]);
                 index++;
-            }
-            else
-            {
-                MsgDispatcher.GetInstance().DispatchMessage(0, EntityDef.MAIN_HERO, EntityDef.GLOBAL, MsgDef.MSG_CANJIAKAOSHI);
-                //entity.GetFSM().ChangeState(PlayerMove.Instance());
+                if(index == contents.Length)
+                {
+                    MsgDispatcher.GetInstance().DispatchMessage(0, EntityDef.MAIN_HERO, EntityDef.GLOBAL, MsgDef.MSG_CANJIAKAOSHI);
+                }
             }
         }
 

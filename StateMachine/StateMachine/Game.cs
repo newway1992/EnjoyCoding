@@ -30,9 +30,9 @@ namespace StateMachine
         {
             while (isRunning)
             {
-                Thread.Sleep(1000);
+                //Thread.Sleep(1000);
                 GameUpdate(1);
-                //MsgDispatcher.GetInstance().DispatchDelayMessage();
+                MsgDispatcher.GetInstance().DispatchDelayMessage();
             }
         }
 

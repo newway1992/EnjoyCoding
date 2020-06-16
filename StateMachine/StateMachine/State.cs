@@ -28,7 +28,7 @@ namespace StateMachine
 
         public virtual bool OnMessage(T entity, Msg msg)
         {
-            return true;
+            return false;
         }
     }
 }

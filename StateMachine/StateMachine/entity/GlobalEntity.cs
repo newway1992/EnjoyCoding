@@ -26,8 +26,7 @@ namespace StateMachine
             {
                 var entity = EntityManager.GetInstance().GetEntity(msg.sender) as Hero;
                 Log.Print("恭喜{0}以优异的成绩通过考试!", entity.Name);
-                entity.Rank = RankDef.RANK_KEYUAN;
-                entity.GetFSM().ChangeState(PlayerMove.Instance());
+                MsgDispatcher.GetInstance().DispatchMessage(5, this.GetID(), entity.GetID(), MsgDef.MSG_TONGGUOKAOSHI,RankDef.RANK_ZHENGKEJI,TitleDef.Title_KEZHANG);
                 return true;
             }
             return false;

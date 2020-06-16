@@ -22,7 +22,7 @@ namespace StateMachine
             m_iAge = 22;
             m_szTitle = TitleDef.Title_NONE;
             m_szRank = RankDef.RANK_DAXUESHENG;
-            fsm = new StateMachine<Hero>(this, PlayerNone.Instance(), PlayerNone.Instance(),null);
+            fsm = new StateMachine<Hero>(this, PlayerNone.Instance(), PlayerNone.Instance(),GlobalState.Instance());
         }
 
         public void Update(float delta)

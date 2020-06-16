@@ -13,6 +13,7 @@ namespace StateMachine
         public int msgId;
         public float delay;
         public DateTime dispatchTime;
+        public object[] extraInfo;
 
         public Msg(int _sender,int _reciever, int _msgId, float _delay, DateTime _dispatchTime)
         {

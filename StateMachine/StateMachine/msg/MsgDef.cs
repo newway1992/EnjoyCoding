@@ -11,5 +11,6 @@ namespace StateMachine
         public const int MSG_DRINK = 0;
         public const int MSG_EAT = 1;
         public const int MSG_CANJIAKAOSHI = 2;
+        public const int MSG_TONGGUOKAOSHI = 3;
     }
 }
